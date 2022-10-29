@@ -13,7 +13,7 @@ const apellido = "jimenez";
  let $realmuppet;
  let Arbol;
  // solo podemos iniciar con los simbolos _ , $ , o alguna letra mayusc. o minus.
-//En JavaScript existen palabras reservadas o que tienen cierta funcion especifica, estas son:
 /*
-
+En Freecodecamp usan "var", no se que diferencia existe pero la investigare 
 */
+var miPrimerNombre = "Edgar";   //Usamos la convencion camelCase
