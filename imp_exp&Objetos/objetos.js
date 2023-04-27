@@ -73,3 +73,96 @@ let persona4 = {
     }
 }
 console.log(persona4.nombreCompleto1);
+
+// Método set modifica los valores del objeto.
+
+let persona5 = {
+    edad:26,
+    nombre: "Alex",
+    color: "green",
+    set newName( fix ){
+        return this.nombre = fix.toUpperCase();
+    },
+
+    get nombreCompleto(){
+        return this.nombre +' '+ this.color;
+    }
+    
+}
+
+persona5.newName = 'adams';
+
+console.log(persona5.nombreCompleto);
+
+/*  Método constructor
+Se usa primera letra en mayuscula y el nombre del objeto a crear */
+
+function Persona(nombre, apellido, email){
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.email = email; 
+    this.nombreCompleto = () =>{
+        return this.nombre + ' ' + this.apellido
+    }
+}
+
+let padre = new Persona('Alex', 'hanks', 'test@mail.com');
+
+padre.nombre = 'Alexis';
+console.log(padre);
+console.log(padre.nombreCompleto())
+
+// Podemos crear objetos de forma "formal" e "informal"
+
+let object = new Object();
+let objeto = {};
+
+let mystring = new String('new order');
+let micadena = 'hola chato';
+
+let number = new Number (420);
+let numero = 2;
+
+let mifuncion = new Function();
+let mifunction = function(){};
+
+// Uso de prototype (asigna ua propiedad a los objetos que hereden del constructor)
+
+Persona.prototype.tel = '56189458';
+
+console.log(padre.tel);
+
+// Uso de Call para poder usar un método del objeto1 en un objeto2
+
+let person1 = {
+    nombre: 'Juan',
+    apellido: 'Canuto',
+    nombreCompleto: function(titulo ='Lic.',tel='04455'){
+        return titulo+ ': '+ this.nombre + ' ' + this.apellido + ', '+ tel;
+    }
+}
+
+let person2 = {
+    nombre: 'Anabel',
+    apellido: 'Sarabi'
+}
+
+console.log(person1.nombreCompleto());
+console.log(person1.nombreCompleto.call( person2, 'Ing','56189458' ));
+
+// Método Apply, similar al metodo call
+
+let person3 = {
+    nombre:'Alan',
+    edad: 25,
+    nombreCompleto: ()=>{
+        return this.nombre + ' ' + this.edad;
+    }
+}
+
+console.log(person1.nombreCompleto.apply( person2 ));
+// Para pasar parametros a con Apply necesitamos pasarlos en un array
+
+let array = ['Youtuber','420']
+console.log(person1.nombreCompleto.apply( person2,array));
+
